@@ -1,5 +1,4 @@
-@media only screen and (max-width: 800px) {
-
+@media only screen and (max-width: 100px) {
     body {
         margin: 0;
         padding: 0;
@@ -41,6 +40,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #769656;
+    overflow-x: hidden;
 }
 
 .title {
