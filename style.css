@@ -1,3 +1,41 @@
+@media only screen and (max-width: 800px) {
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+        overflow-x: hidden;
+    }
+
+    .title {
+        text-align: center;
+    }
+
+    .bw {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .white {
+        text-align: center;
+    }
+
+    .black {
+        text-align: center;
+    }
+
+    button {
+        font-size: 16px;
+        margin: 5px;
+    }
+
+    footer {
+        text-align: center;
+    }
+}
+
+
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -24,12 +62,29 @@ body {
     padding: 1.5em;
 }
 
+#startWhite {
+    content: "";
+    width: 10em;
+    height: 10em;
+    padding: 2em;
+}
+
+#startBlack {
+    background-color: black;
+    content: "";
+    width: 10em;
+    height: 10em;
+    padding: 2em;
+}
+
 .white {
+    text-align: center;
     display: inline-block;
     padding: 5em;
 }
 
 .black {
+    text-align: center;
     display: inline-block;
     padding: 5em;
 }

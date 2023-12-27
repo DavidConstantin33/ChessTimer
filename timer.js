@@ -2,6 +2,7 @@ function createChessTimer(startBtnId, timerId, isWhite) {
     let timer;
     let seconds = 600; // 10 minutes
     let isRunning = false;
+    let nextTimer;
 
     const startBtn = document.getElementById(startBtnId);
     const timerDisplay = document.getElementById(timerId);
@@ -14,6 +15,7 @@ function createChessTimer(startBtnId, timerId, isWhite) {
     function stopTimer() {
         clearInterval(timer);
         isRunning = false;
+        startNextTimer();
     }
 
     function updateTimer() {
@@ -39,13 +41,19 @@ function createChessTimer(startBtnId, timerId, isWhite) {
         displayTime();
     }
 
+    function startNextTimer() {
+        if (nextTimer && !nextTimer.isRunning()) {
+            nextTimer.start();
+        }
+    }
+
     startBtn.addEventListener('click', function () {
         if (isRunning) {
             stopTimer();
-            startBtn.textContent = 'Start';
+            startBtn.textContent = '';
         } else {
             startTimer();
-            startBtn.textContent = 'Stop';
+            startBtn.textContent = '';
         }
     });
 
@@ -53,10 +61,18 @@ function createChessTimer(startBtnId, timerId, isWhite) {
         start: startTimer,
         stop: stopTimer,
         reset: resetTimer,
-        isRunning: () => isRunning
+        isRunning: () => isRunning,
+        setNextTimer: (next) => (nextTimer = next)
     };
 }
 
 function reset() {
-    location.reload()
+    location.reload();
 }
+
+// Initialize timers
+const whiteTimer = createChessTimer('startWhite', 'timerWhite', true);
+const blackTimer = createChessTimer('startBlack', 'timerBlack', false);
+
+whiteTimer.setNextTimer(blackTimer);
+blackTimer.setNextTimer(whiteTimer);
