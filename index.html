@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Chess Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="title">
+<h1>Chess Timer ♟️</h1>
+<p>Made by Constantin David</p>
+</div>
+
+<div class="bw">
+ <div class="white">
+     <h1>White</h1>
+     <button id="startWhite">Start</button>
+     <p id="timerWhite">10:00</p>
+ </div>
+<div class="black">
+    <h1>Black</h1>
+    <button id="startBlack">Start</button>
+    <p id="timerBlack">10:00</p>
+</div>
+</div>
+<div class="reset">
+<button onclick="reset()">Reset</button>
+</div>
+<footer>
+    <p>Constantin David @2023</p>
+</footer>
+
+<script
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+<script src="timer.js"></script>
+<script>
+    const whiteTimer = createChessTimer('startWhite', 'timerWhite', true);
+    const blackTimer = createChessTimer('startBlack', 'timerBlack', false);
+</script>
+
+</body>
+</html>
